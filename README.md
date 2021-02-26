@@ -1,46 +1,36 @@
 # Crowpi2
 
-### Expanding the Raspberry Pi file system<br>
-open the PI’s configuration screen (in the terminal window) by typing:<br>
+### Expands the Raspberry Pi filesystem
+1. Open a new Terminal (**Ctrl**+**Alt**+**T**) <br>
+2. Type `sudo raspi-config` and press **Enter** to launch the _**Raspberry Pi Configuration**_ apps. <br>
+3. Select the option as highlighted below, <br>
+![Image text](https://github.com/Pearl-852/elecrow_crowpi2/blob/main/raspi-config--Main.png) <br>
+![Image text](https://github.com/Pearl-852/elecrow_crowpi2/blob/main/raspi-config--Advanced_Options.png) <br>
+4. When a confirmation dialog box appears, press **Enter** to return to the main menu. <br>
+5. Press **Tab** twice to choose **Finish** and press **Enter**. <br>
+6. Choose **YES** and press **Enter** when it prompts to reboot. <br>
+_**Note**: The latest Raspberry Pi OS image will expand the filesystem automatically at the initial boot._ <br>
 
-`sudo raspi-config`<br>
+### Which Raspberry Pi models are recommended for Crowpi2 software?
+Crowpi2 software is recommended to run on a Raspberry Pi 4 Model B with 2GB RAM or higher (preferably with 4GB or 8GB).
 
-Select as follows：<br>
-![Image text](https://github.com/elecrow-engle/elecrow_crowpi2/blob/main/j1.png)<br>
-![Image text](https://github.com/elecrow-engle/elecrow_crowpi2/blob/main/j2.png)<br>
+### Why can't the GPIO-0 (SDA0) pin be used?
+GPIO-0 (SDA0) is reserved to detect Raspberry Pi startup in order to control the power on/off on the PCBA board, so without this pin signal being driven low, the CrowPi2 will shutdown unexpectedly.
 
-click:<br>
-`Finish`<br>
-select `YES` when it asks for a reboot.<br>
-### Which raspberry pi version is recommended by Crowpi2 software?<br>
-Crowpi2 software is recommended to run on RPi4 2G or higher, preferably 4G or 8GB.<br>
-<br>
-### Why can't SDA0 pins be used?<br>
-Because this pin is used to detect the start pin of the PCBA board, it may cause the device to shut down if used.<br>
-<br>
-
-### To install the new Raspbain system, what configuration should be done:<br>
+### To install the new Raspberry Pi OS, what additional configuration should be made.
 If you use the new Raspbain image, open the config.txt file in the TF kagan directory after the burn is completed, and modify the config.txt code as follows (add at the end):<br>
 
-`hdmi_force_hotplug=1`<br>
-`max_usb_current=1`<br>
-`hdmi_group=2`<br>
-`hdmi_mode=87`<br>
-`hdmi_cvt 1920 1080 60 6 0 0 0`<br>
-`hdmi_drive=2`<br>
-`enable_uart=1`<br>
-
-<br>
-In addition:<br>
-Execute the following command:<br>
-
-`git clone https://github.com/elecrow-engle/elecrow_crowpi2.git`<br>
-`cd elecrow_crowpi2/GPIO`<br>
-`sudo bash ./start.sh` <br>
-
-
-
-
-
-
+After flashing a new Raspberry Pi OS image, you will need to edit the **config.txt**, located in the **/boot** directory of the SD card, adding (Cut & Paste) the following statements to the end of the file.
+```
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=82
+hdmi_drive=2
+enable_uart=1
+gpio=0=op,dl
+```
+In addition, after booting up with the new image, open a new Terminal and execute the following commands
+`git clone https://github.com/elecrow-engle/elecrow_crowpi2.git`
+`cd elecrow_crowpi2/GPIO`
+`sudo bash ./start.sh`
 
