@@ -17,7 +17,7 @@ Crowpi2 software is recommended to run on a Raspberry Pi 4 Model B with 2GB RAM 
 ### Why can't the GPIO-0 (SDA0) pin be used? <br>
 GPIO-0 (SDA0) is reserved to detect Raspberry Pi startup in order to control the power on/off on the PCBA board, so without this pin signal being driven low, the CrowPi2 will shutdown unexpectedly. <br>
 
-### To install the new Raspberry Pi OS, what additional configuration should be made. <br>
+### To install the new Raspberry Pi OS, what additional configuration should be made? <br>
 After flashing a new Raspberry Pi OS image, you will need to edit the **config.txt**, located in the **/boot** directory of the SD card, adding (Cut & Paste) the following statements to the end of the file. <br>
 ```
 hdmi_force_hotplug=1
@@ -30,5 +30,6 @@ gpio=0=op,dl
 In addition, after booting up with the new image, open a new Terminal and execute the following commands <br>
 `git clone https://github.com/elecrow-engle/elecrow_crowpi2.git` <br>
 `cd elecrow_crowpi2/GPIO` <br>
-`sudo bash ./start.sh` <br>
+`chmod +x start.sh` <br>
+`sudo ./start.sh` <br>
 
