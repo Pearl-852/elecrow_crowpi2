@@ -1,8 +1,8 @@
 #!/bin/bash
 #Date:		03:39 2020-0925
 #Author:	Create by Elecrow
-#Description:	this script function is configure the file to the new system
-#Version:	1.0
+#Description:	This script functions to configure file(s) to the new system.
+#Version:	1.1
 
 FOLDER="/usr/share/elecrow/script"
 mkdir ${FOLDER} &>>error.txt
