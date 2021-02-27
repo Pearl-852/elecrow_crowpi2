@@ -3,7 +3,7 @@
 ### Expands the Raspberry Pi filesystem <br>
 1. Open a new Terminal (**Ctrl**+**Alt**+**T**) <br>
 2. Type `sudo raspi-config` and press **Enter** to launch the _**Raspberry Pi Configuration**_ app. <br>
-3. Select the option as highlighted below, <br>
+3. Choose the option as highlighted below, <br>
 ![Image text](https://github.com/Pearl-852/elecrow_crowpi2/blob/main/raspi-config--Main.png) <br>
 ![Image text](https://github.com/Pearl-852/elecrow_crowpi2/blob/main/raspi-config--Advanced_Options.png) <br>
 4. When a confirmation dialog box appears, press **Enter** to return to the main menu. <br>
